@@ -1,3 +1,1 @@
-BOT_TOKEN = '5876407107:AAEWrdkDOhwMYEJAQEAVJbROzHRB5l2j9H0' 
-token = 'ba1283e5b53339599cde267689f952c764ec30f7'
-secret = '9a81aa82b6e2bbb79586e6c8976691f4cf360b8'
+BOT_TOKEN = 'токен твоего бота от @BotFather' 
