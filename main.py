@@ -35,46 +35,8 @@ async def kyrsa(message: types.Message):
     kyrs.add(btn, btn2, btn3, btn4)
     await message.reply('Курсы по IT технологиям', reply_markup=kyrs)
 
-@dp.message_handler(lambda message: message.text == 'Доп функции🛠')
-async def dopfunc(message: types.Message): 
-     buttons = types.ReplyKeyboardMarkup(resize_keyboard=True) 
-     ph = types.KeyboardButton(text = 'Parser')  
-     bask = types.KeyboardButton(text = 'Назад 🔙') 
-     phone_ = types.KeyboardButton(text = 'Phone📞')
-     buttons.add(phone, bask, ph, phone_) 
-     await message.reply('Выберите функцию', reply_markup=buttons)
 
-@dp.message_handler(Text(equals='Parser')) 
-async def pars_mode(message: types.Message): 
-    await message.reply('Введите ссылку') 
 
-    @dp.message_handler() 
-    async def mes(message: types.Message): 
-        data = message.text
-        response = requests.get(data) 
-        if response.status_code == 200: 
-            f = BeautifulSoup(response.text, 'html.parser')
-            with io.open('prototip_html_resault.txt', 'w', encoding='utf-8') as S:
-                S.write(str(f))
-            
-            await message.answer_document(open('prototip_html_resault.txt', 'r'))
-        elif (response.status_code == 400): 
-            await message.reply('Сбой подключения (HTTPerror, URLerror)')
-
-@dp.message_handler(Text(equals='Phone📞')) 
-async def phone(message: types.Message): 
-      await message.reply('Введите номер телефона') 
-
-      @dp.message_handler() 
-      async def msg(message: types.Message): 
-          phone_txt = int(message.text)
-          dadata = Dadata(token, secret)
-          result = dadata.clean("phone", phone_txt) 
-
-          with io.open('phone_info.txt', 'w', encoding='utf-8') as f: 
-              f.write(str(result))
-              
-          await message.reply_document(open('phone_info.txt', 'r'))
 @dp.message_handler(Text(equals='Назад 🔙'))  
 async def main_t(message: types.Message): 
      text = message.text 
