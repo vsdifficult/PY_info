@@ -16,10 +16,8 @@ start_menu = ReplyKeyboardMarkup(
         ], 
         [
             KeyboardButton(text= 'Курсы IT🎟')
-        ], 
-        [
-            KeyboardButton(text = 'Доп функции🛠')
-        ]
+        ] 
+        
     ], resize_keyboard=True
 ) 
 
